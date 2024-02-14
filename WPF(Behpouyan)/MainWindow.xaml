@@ -1,0 +1,44 @@
+﻿<Window x:Class="WPF_Behpouyan_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Behpouyan_" 
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="400">
+
+    <Window.Resources>
+        <local:Converter x:Key="ConvertFill"/>
+    </Window.Resources>
+
+
+    <Grid>
+        <StackPanel Background="DarkCyan">
+            <Grid>
+
+                <ListBox x:Name="lstBox"
+             Width="500"
+             >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+
+                                <Rectangle Height="{Binding Height}"
+                              Fill="{Binding ElementName=txt, Path=Text,Converter={StaticResource ConvertFill}}" />
+
+
+                                <TextBlock x:Name="txt"
+                               Text="{Binding Amount}"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+               
+            </Grid>
+
+
+        </StackPanel>
+    </Grid>
+</Window>
